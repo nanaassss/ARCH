@@ -1,12 +1,12 @@
-# ATLAS / arquitetura
+# ARCH
 
-Atlas é uma interface editorial para pesquisa e descoberta de referências de arquitetura, urbanismo e patrimônio. O projeto combina imagens, obras, acervos históricos e contexto geográfico em uma experiência responsiva para desktop e celular.
+ARCH é uma interface editorial para pesquisa e descoberta de referências de arquitetura, urbanismo e patrimônio. O projeto combina imagens, obras, acervos históricos e contexto geográfico em uma experiência responsiva para desktop e celular.
 
 > Projeto pessoal desenvolvido para estudo de interfaces, integração de Web APIs e organização de referências arquitetônicas.
 
 ## Visão geral
 
-O Atlas permite pesquisar estilos, arquitetos, edifícios, cidades e tipologias arquitetônicas. Os resultados são organizados em quatro frentes:
+O ARCH permite pesquisar estilos, arquitetos, edifícios, cidades e tipologias arquitetônicas. Os resultados são organizados em quatro frentes:
 
 - **Referência visual:** imagens arquitetônicas do Unsplash.
 - **Obras e autores:** entidades relacionadas consultadas no Wikidata.
