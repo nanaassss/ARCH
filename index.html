@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Atlas aberto de arquitetura: imagens, obras, patrimônio e contexto urbano.">
+  <title>ARCH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="barra"><a class="marca" href="."><b>A/</b><span>ATLAS<br>ARQUITETURA</span></a><div class="barra-acoes"><span class="edicao">referências abertas · 01</span><button id="abrir-biblioteca" class="biblioteca-toggle" type="button">Salvos <span id="salvos-count">0</span></button><button id="tema" class="tema-toggle" type="button" aria-label="Ativar modo escuro" aria-pressed="false"><span class="tema-sol" aria-hidden="true">☼</span><span class="tema-lua" aria-hidden="true">☾</span></button></div></div>
+    <div class="hero">
+      <div><p class="eyebrow">Arquivo visual + cidade + memória</p><h1>Arquitetura<br><em>em contexto.</em></h1><p class="intro">Pesquise obras, estilos e lugares. O Atlas cruza quatro fontes abertas para aproximar imagem, história e território.</p></div>
+      <div class="selo" aria-hidden="true"><span>↘</span><small>pesquise<br>um lugar</small></div>
+    </div>
+    <form id="form" role="search">
+      <label class="sr" for="q">Buscar arquitetura</label>
+      <div class="campo"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Ex.: brutalismo, Brasília, Lina Bo Bardi…" autocomplete="off"><button id="limpar" type="button" aria-label="Limpar busca" hidden>×</button></div>
+      <button class="buscar" type="submit">Explorar <span aria-hidden="true">↗</span></button>
+    </form>
+    <div class="temas"><span>Comece por</span><nav id="chips" aria-label="Temas de arquitetura"></nav></div>
+  </header>
+
+  <main>
+    <div class="status-row"><p id="status" role="status" aria-live="polite"></p><span class="legenda">4 fontes abertas · resultados relacionados</span></div>
+    <section class="painel painel-destaque" aria-labelledby="titulo-imagens">
+      <div class="painel-head"><div><p class="kicker">01 / referência visual</p><h2 id="titulo-imagens">Imagens para começar</h2></div><span class="fonte">Unsplash API</span></div>
+      <div id="fotos" class="fotos"></div>
+    </section>
+
+    <div class="dupla">
+      <section class="painel" aria-labelledby="titulo-obras"><div class="painel-head"><div><p class="kicker">02 / obras e autores</p><h2 id="titulo-obras">Edifícios relacionados</h2></div><span class="fonte">Wikidata API</span></div><div id="obras" class="lista"></div></section>
+      <section class="painel" aria-labelledby="titulo-arquivo"><div class="painel-head"><div><p class="kicker">03 / memória</p><h2 id="titulo-arquivo">Acervo histórico</h2></div><span class="fonte">Wikimedia Commons</span></div><div id="arquivo" class="arquivo"></div></section>
+    </div>
+
+    <section class="painel painel-urbano" aria-labelledby="titulo-urbano"><div class="painel-head"><div><p class="kicker">04 / contexto urbano</p><h2 id="titulo-urbano">Edifícios no território</h2></div><span class="fonte">OpenStreetMap · Overpass</span></div><div class="urbano-intro"><p id="cidade">Explorando o entorno urbano</p><a id="mapa" href="https://www.openstreetmap.org/" target="_blank" rel="noopener">Abrir no mapa ↗</a></div><div id="mapa-interativo" class="mapa-interativo" aria-label="Mapa interativo de projetos e edifícios"></div><div id="urbano" class="urbano-grid"></div></section>
+  </main>
+
+  <dialog id="detalhe" class="detalhe" aria-labelledby="detalhe-titulo">
+    <button id="fechar-detalhe" class="fechar-detalhe" type="button" aria-label="Fechar detalhes">×</button>
+    <div id="detalhe-capa" class="detalhe-capa" hidden><img id="detalhe-imagem" alt=""></div>
+    <div class="detalhe-corpo"><p class="kicker">Ficha de referência</p><h2 id="detalhe-titulo">Carregando…</h2><p id="detalhe-descricao" class="detalhe-descricao"></p><div id="detalhe-meta" class="detalhe-meta"></div><div id="detalhe-imagens" class="detalhe-imagens"></div><div class="detalhe-acoes"><button id="salvar-favorito" type="button">☆ Salvar favorito</button><button id="salvar-colecao" type="button">＋ Adicionar à coleção</button></div><div class="detalhe-links"><a id="detalhe-pagina" href="#">Abrir página desta referência ↗</a><a id="detalhe-fonte" href="#" target="_blank" rel="noopener">Abrir ficha completa no Wikidata ↗</a></div></div>
+  </dialog>
+
+  <dialog id="biblioteca" class="biblioteca" aria-labelledby="biblioteca-titulo"><button id="fechar-biblioteca" class="fechar-detalhe" type="button" aria-label="Fechar biblioteca">×</button><div class="biblioteca-corpo"><p class="kicker">Minha biblioteca</p><h2 id="biblioteca-titulo">Favoritos e coleções</h2><div id="biblioteca-lista"></div></div></dialog>
+
+  <footer><span>ATLAS / ARQUITETURA</span><span>Dados e imagens pertencem às fontes indicadas</span></footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
