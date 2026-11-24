@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Atlas aberto de arquitetura: imagens, obras, patrimônio e contexto urbano.">
-  <title>ARCH</title>
+  <title>ATLAS / arquitetura</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,7 +27,8 @@
   </header>
 
   <main>
-    <div class="status-row"><p id="status" role="status" aria-live="polite"></p><span class="legenda">4 fontes abertas · resultados relacionados</span></div>
+    <div class="status-row"><p id="status" role="status" aria-live="polite"></p><span class="legenda">6 fontes abertas · resultados relacionados</span></div>
+    <section class="painel painel-semantica" aria-labelledby="titulo-semantica"><div class="painel-head"><div><p class="kicker">00 / vocabulário controlado</p><h2 id="titulo-semantica">Filtros semânticos</h2></div><span class="fonte">Getty AAT · ULAN · TGN</span></div><div id="filtros-semanticos" class="filtros-semanticos"><button type="button" class="filtro-ativo" data-vocab="todos">Todos</button><button type="button" data-vocab="aat">AAT · estilos e materiais</button><button type="button" data-vocab="ulan">ULAN · arquitetos</button><button type="button" data-vocab="tgn">TGN · lugares</button></div><div id="getty" class="getty-grid"></div></section>
     <section class="painel painel-destaque" aria-labelledby="titulo-imagens">
       <div class="painel-head"><div><p class="kicker">01 / referência visual</p><h2 id="titulo-imagens">Imagens para começar</h2></div><span class="fonte">Unsplash API</span></div>
       <div id="fotos" class="fotos"></div>
@@ -38,6 +39,8 @@
       <section class="painel" aria-labelledby="titulo-arquivo"><div class="painel-head"><div><p class="kicker">03 / memória</p><h2 id="titulo-arquivo">Acervo histórico</h2></div><span class="fonte">Wikimedia Commons</span></div><div id="arquivo" class="arquivo"></div></section>
     </div>
 
+    <section class="painel painel-europeana" aria-labelledby="titulo-europeana"><div class="painel-head"><div><p class="kicker">03b / patrimônio digital</p><h2 id="titulo-europeana">Acervo Europeana</h2></div><span class="fonte">Europeana Search API · IIIF</span></div><div id="europeana" class="europeana-grid"></div></section>
+
     <section class="painel painel-urbano" aria-labelledby="titulo-urbano"><div class="painel-head"><div><p class="kicker">04 / contexto urbano</p><h2 id="titulo-urbano">Edifícios no território</h2></div><span class="fonte">OpenStreetMap · Overpass</span></div><div class="urbano-intro"><p id="cidade">Explorando o entorno urbano</p><a id="mapa" href="https://www.openstreetmap.org/" target="_blank" rel="noopener">Abrir no mapa ↗</a></div><div id="mapa-interativo" class="mapa-interativo" aria-label="Mapa interativo de projetos e edifícios"></div><div id="urbano" class="urbano-grid"></div></section>
   </main>
 
@@ -47,10 +50,11 @@
     <div class="detalhe-corpo"><p class="kicker">Ficha de referência</p><h2 id="detalhe-titulo">Carregando…</h2><p id="detalhe-descricao" class="detalhe-descricao"></p><div id="detalhe-meta" class="detalhe-meta"></div><div id="detalhe-imagens" class="detalhe-imagens"></div><div class="detalhe-acoes"><button id="salvar-favorito" type="button">☆ Salvar favorito</button><button id="salvar-colecao" type="button">＋ Adicionar à coleção</button></div><div class="detalhe-links"><a id="detalhe-pagina" href="#">Abrir página desta referência ↗</a><a id="detalhe-fonte" href="#" target="_blank" rel="noopener">Abrir ficha completa no Wikidata ↗</a></div></div>
   </dialog>
 
-  <dialog id="biblioteca" class="biblioteca" aria-labelledby="biblioteca-titulo"><button id="fechar-biblioteca" class="fechar-detalhe" type="button" aria-label="Fechar biblioteca">×</button><div class="biblioteca-corpo"><p class="kicker">Minha biblioteca</p><h2 id="biblioteca-titulo">Favoritos e coleções</h2><div id="biblioteca-lista"></div></div></dialog>
+  <dialog id="biblioteca" class="biblioteca" aria-labelledby="biblioteca-titulo"><button id="fechar-biblioteca" class="fechar-detalhe" type="button" aria-label="Fechar biblioteca">×</button><div class="biblioteca-corpo"><p class="kicker">Minha biblioteca</p><h2 id="biblioteca-titulo">Favoritos e coleções</h2><div class="biblioteca-exportar"><button id="exportar-json" type="button">Baixar JSON ↓</button><button id="exportar-pdf" type="button">Imprimir / PDF ↗</button></div><div id="biblioteca-lista"></div></div></dialog>
 
   <footer><span>ATLAS / ARQUITETURA</span><span>Dados e imagens pertencem às fontes indicadas</span></footer>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

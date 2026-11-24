@@ -1,12 +1,12 @@
-# ARCH
+# ATLAS / arquitetura
 
-ARCH é uma interface editorial para pesquisa e descoberta de referências de arquitetura, urbanismo e patrimônio. O projeto combina imagens, obras, acervos históricos e contexto geográfico em uma experiência responsiva para desktop e celular.
+Atlas é uma interface editorial para pesquisa e descoberta de referências de arquitetura, urbanismo e patrimônio. O projeto combina imagens, obras, acervos históricos e contexto geográfico em uma experiência responsiva para desktop e celular. As fontes são carregadas progressivamente para manter a interface rápida.
 
 > Projeto pessoal desenvolvido para estudo de interfaces, integração de Web APIs e organização de referências arquitetônicas.
 
 ## Visão geral
 
-O ARCH permite pesquisar estilos, arquitetos, edifícios, cidades e tipologias arquitetônicas. Os resultados são organizados em quatro frentes:
+O Atlas permite pesquisar estilos, arquitetos, edifícios, cidades e tipologias arquitetônicas. Os resultados são organizados em frentes complementares:
 
 - **Referência visual:** imagens arquitetônicas do Unsplash.
 - **Obras e autores:** entidades relacionadas consultadas no Wikidata.
@@ -39,6 +39,8 @@ O ARCH permite pesquisar estilos, arquitetos, edifícios, cidades e tipologias a
 - Unsplash API para referências visuais.
 - Wikidata API para obras, arquitetos e entidades.
 - Wikimedia Commons API para acervo histórico e imagens.
+- Europeana Search API e IIIF para patrimônio digital europeu.
+- Getty AAT, ULAN e TGN via Linked Open Data/SPARQL para vocabulário controlado.
 
 ## Como executar localmente
 
@@ -73,6 +75,8 @@ arch/
 ├── index.html          # Estrutura principal da interface
 ├── style.css           # Identidade visual e responsividade
 ├── app.js              # Consultas, filtros, mapa e interações
+├── config.js           # Configuração local (sem chave publicada)
+├── config.example.js   # Modelo de configuração da Europeana
 ├── manus-routes.json   # Manifesto de rota para o preview estático
 └── README.md           # Documentação do projeto
 ```
@@ -126,6 +130,12 @@ O projeto usa fontes externas abertas. As informações exibidas pertencem às r
 - [Leaflet](https://leafletjs.com/)
 
 As imagens devem manter seus créditos e links de origem. Antes de publicar em produção, verifique as licenças específicas de cada item retornado pelas APIs.
+
+## Configuração da Europeana
+
+A busca Europeana exige uma chave gratuita. Solicite uma em [Europeana API keys](https://www.europeana.eu/account/api-keys), copie `config.example.js` para `config.js` e substitua o valor de `EUROPEANA_KEY`. O arquivo `config.js` é local e não deve ser publicado com uma chave real. Sem a chave, o restante do Atlas continua funcionando e o painel informa como configurar o acervo.
+
+Os Vocabulários Getty funcionam sem chave por meio do endpoint público Linked Open Data/SPARQL. O painel oferece filtros para AAT (estilos e materiais), ULAN (arquitetos) e TGN (lugares). Os dados Getty são disponibilizados sob ODC-By; mantenha a atribuição indicada pela fonte.
 
 ## Chave do Unsplash
 
